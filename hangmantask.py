@@ -15,7 +15,7 @@ def select_word(list):
 # Make a function that ensures that the user inputs to the game correctly.
 
 
-def display_the_board(missed_letters, correct_letters, secret_word):
+def display_the_board(missed_letters, correct_letters, hidden_word):
     print(hangman_pics[len(missed_letters)])
     print()
 
@@ -24,11 +24,11 @@ def display_the_board(missed_letters, correct_letters, secret_word):
         print(letter, end=' ')
     print()
 
-    blanks = '_' * len(secret_word)
+    blanks = '_' * len(hidden_word)
 
-    for i in range(len(secret_word)):  # Replace blanks with correctly guessed letters
-        if secret_word[i] in correct_letters:
-            blanks = blanks[:i] + secret_word[i] + blanks[i + 1:]
+    for i in range(len(hidden_word)):  # Replace blanks with correctly guessed letters
+        if hidden_word[i] in correct_letters:
+            blanks = blanks[:i] + hidden_word[i] + blanks[i + 1:]
 
     for letter in blanks:  # Show the secret word with spaces in between each letter.
         print(letter, end=' ')
