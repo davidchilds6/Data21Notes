@@ -30,7 +30,7 @@ def display_the_board(missed_letters, correct_letters, hidden_word):
         if hidden_word[i] in correct_letters:
             blanks = blanks[:i] + hidden_word[i] + blanks[i + 1:]
 
-    for letter in blanks:  # Show the secret word with spaces in between each letter.
+    for letter in blanks:  # Show the hidden word with spaces in between each letter.
         print(letter, end=' ')
     print()
 
