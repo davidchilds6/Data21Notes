@@ -48,7 +48,7 @@ def player_guess(guessed_list):
 
 wrong_letters = ""  # Initialise empty strings for wrong guesses and correct guesses
 correct_letters = ""
-word = select_word(word_list)  # Word is selected from the list
+word = select_word(word_list).lower()  # Word is selected from the list
 game_done = False  # This boolean will help us to stop the game when won or lost.
 while True:
     display_the_board(wrong_letters, correct_letters, word)  # Call the display the board function.
