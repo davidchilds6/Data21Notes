@@ -61,25 +61,21 @@ class Car:
     Max Speed: {self.top_speed + ',': <7} Current Speed: {self.speed}"
         return car_info
 
-    # def get_current_speed(self):                        # I think i need to do the calcs outside the class and
-    #     return self.speed                               # not in the methods
-    #
-    # def increase_speed(self, new_speed):
-    #     new_speed = int(self.speed) + int(increase)
-    #     self.speed = new_speed
-    #
-    # # def decrease_speed(self, speed):
-    # #     return int(speed) - int(decrease)
-    #
-    # def get_new_speed(self):
-    #     return self.speed
+    def get_current_speed(self):
+        return self.speed
+
+    def increase_speed(self, value):
+        self.speed = float(self.speed) + value
+        return self.speed
+
+    def decrease_speed(self, value):
+        self.speed = float(self.speed) - value
+        return self.speed
 
 
 my_car = Car("Volkswagen", "Polo", "1.2", "5", "Silver", "100", "0")
-
-print(f"This is your current speed {Car.get_current_speed(my_car)}")
-increase = input("How many Mph do you want to speed up by?")
-decrease = input("How many Mph do you want to slow down by?")
-print(f"This is your new speed {Car.get_new_speed(my_car)}")
-
+print(my_car)
+print(my_car.get_current_speed())
+print(my_car.increase_speed(50))
+print(my_car.decrease_speed(20))
 
