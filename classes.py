@@ -66,16 +66,21 @@ class Car:
 
     def increase_speed(self, value):
         self.speed = float(self.speed) + value
+        if self.speed >= float(self.top_speed):
+            self.speed = float(self.top_speed)
         return self.speed
 
     def decrease_speed(self, value):
         self.speed = float(self.speed) - value
+        if self.speed <= 0:
+            self.speed = 0
         return self.speed
 
 
-my_car = Car("Volkswagen", "Polo", "1.2", "5", "Silver", "100", "0")
+my_car = Car("VW", "Polo", "1.2", "5", "Silver", "100", "0")
 print(my_car)
-print(my_car.get_current_speed())
-print(my_car.increase_speed(50))
-print(my_car.decrease_speed(20))
+my_car.get_current_speed()
+my_car.increase_speed(70)
+my_car.decrease_speed(30)
+print(my_car)
 
