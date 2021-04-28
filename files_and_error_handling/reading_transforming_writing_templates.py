@@ -33,4 +33,4 @@ def load_csv(old_csv, new_csv):
 
 # e_ud = extract_csv("user_details.csv")
 # t_ud = transform_csv(e_ud)
-load_csv("user_details.csv", new_csv="hope_this_works")
+load_csv("user_details.csv", new_csv="hope_this_works.csv")
