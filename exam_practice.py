@@ -140,4 +140,43 @@ concatenates them, and returns the resulting string repeated three times."""
 #     return ''.join(x) * 3
 
 
+"""Question from the exam to help ab 
+Write the body of the function is_on_even_index(list, value).
+The function should return True if value is contained in list at an
+even index, False otherwise.
+To test run this:
+t = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+print(is_on_even_position(t, 6))  # it should return False
+print(is_on_even_position(t, 3))  # it should return True
+t = [1, 1]
+print(is_on_even_position(t, 1))  # it should return True"""
+
+
+# def is_on_even_index(list, value):
+#     if value in list[0::2]:
+#         return True
+#     else:
+#         return False
+#
+#
+# t = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+# print(is_on_even_index(t, 6))
+# print(is_on_even_index(t, 3))
+# t = [1, 1]
+# print(is_on_even_index(t, 1))
+#
+#
+# def is_on_even_index2(list, value):
+#     index = list.index(value)
+#     if index % 2 == 0:
+#         return True
+#     else:
+#         return False
+#
+#
+# t = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+# print(is_on_even_index2(t, 6))
+# print(is_on_even_index2(t, 3))
+# t = [1, 1]
+# print(is_on_even_index2(t, 1))
 
