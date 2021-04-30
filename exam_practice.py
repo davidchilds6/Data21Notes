@@ -180,3 +180,48 @@ print(is_on_even_position(t, 1))  # it should return True"""
 # t = [1, 1]
 # print(is_on_even_index2(t, 1))
 
+"""In this task, you will find a function called odd_even_counter that takes an argument of number.
+You will need to implement the below details to solve the problem:
+Implement a list - Consider that the list will need to be set i.e. not blank []:	
+    The list at index 0 will relate to even numbers and at a list index 1 odd numbers
+    You will need to iterate on any given number until it reaches 0
+    Within the loop, you will need to evaluate whether the number is even or odd and add it to the appropriate list 
+    index ensuring that it does not overwrite the number but adds to it
+Remember to manage a counter in your loop
+You will need to only return the array
+An example:
+If you run the test, which is being given the number 5 -> oddEvenCounter(5) it should print 6 and 9
+This is because the array returns [6,9] because of the even totals 2+4 = 6 and the odd totals 1+3+5 = 9"""
+
+
+# def odd_even_counter(number):
+#     number_list = ([num for num in range(number + 1) if num % 2 == 0],
+#                    [num for num in range(number + 1) if num % 2 != 0])
+#     return sum(number_list[0]), sum(number_list[1])
+#
+#
+# print(odd_even_counter(5))
+
+
+# def odd_even_counter2(number):
+#     even_list = [num for num in range(number + 1) if num % 2 == 0]
+#     odd_list = [num for num in range(number + 1) if num % 2 != 0]
+#     return even_list, odd_list
+#
+#
+# print(odd_even_counter2(5))
+
+
+# def odd_even_counter3(number):
+#     array = [[0], [0]]
+#     for nums in range(number):
+#         if nums % 2 == 0:
+#             array[0].append(nums)
+#         elif nums % 2 != 0:
+#             array[1].append(nums)
+#         else:
+#             print("problem")
+#     return sum(array[0]), sum(array[1])
+#
+#
+# print(odd_even_counter3(5))
