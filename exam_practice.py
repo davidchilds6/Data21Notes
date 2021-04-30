@@ -225,3 +225,4 @@ This is because the array returns [6,9] because of the even totals 2+4 = 6 and t
 #
 #
 # print(odd_even_counter3(5))
+
