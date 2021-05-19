@@ -3,7 +3,7 @@
 
 import random
 # Select word from the hangman_words word_list
-from hangman_words import word_list, hangman_pics
+from generalpython.hangman_words import word_list, hangman_pics
 
 
 def select_word(list):  # This function takes a random word from a list for the player to guess
