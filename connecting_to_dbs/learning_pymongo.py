@@ -4,7 +4,7 @@ from pprint import pprint
 client = pymongo.MongoClient()
 # print(client)
 db = client["starwars"]
-# print(db)
+print(db)
 
 # examples of differences in syntax db.characters.insert_one(), db.characters.insert_many()
 
