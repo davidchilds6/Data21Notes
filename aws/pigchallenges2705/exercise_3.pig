@@ -45,22 +45,51 @@ employees = LOAD 'PigExercise/csvs/employees.csv' USING PigStorage(',')
 people_filtered = FOREACH people 
                 GENERATE
                         BusinessEntityID,
-                        SUBSTRING(FirstName, 0, 1) AS FirstInitial,
-                        SUBSTRING(REPLACE(MiddleName, 'NULL', ''), 0, 1) AS MiddleInitial,
+                        FirstName,
+                        REPLACE(MiddleName, 'NULL', '') AS MiddleName,
                         LastName,
                         REPLACE(Suffix, 'NULL', '') AS Suffix;
+people_init = FOREACH people_filtered 
+                GENERATE 
+                        BusinessEntityID,
+                        SUBSTRING(FirstName, 0, 1) AS FirstInitial,
+                        SUBSTRING(MiddleName, 0, 1) AS MiddleInitial,
+                        LastName,
+                        Suffix;
 employee_ids = FOREACH employees 
                 GENERATE BusinessEntityID;
-joint_results = JOIN people_filtered BY BusinessEntityID, 
+-- join on BusinessEntityID
+joint_results = JOIN people_init BY BusinessEntityID, 
                 employee_ids BY BusinessEntityID;
+-- return concat names
 final_results = FOREACH joint_results 
                 GENERATE 
                     CONCAT( 
-                        people_filtered::FirstInitial,
+                        people_init::FirstInitial,
                         '. ', 
-                        people_filtered::MiddleInitial, 
+                        people_init::MiddleInitial, 
                         '. ',
-                        people_filtered::LastName, 
+                        people_init::LastName, 
                         ' ',
-                        people_filtered::Suffix) AS FullName;
+                        people_init::Suffix) AS FullName;
 STORE final_results INTO 'Exercise3';
+
+-- initial problems solved when separating the replace aggregations and substring aggregations into separate variables.
+/* in theory replacing this for above would avoid empty middle names
+final_results = FOREACH joint_results
+                GENERATE (MiddleInitial=='[A-Z]'?
+                    CONCAT(
+                        people_init::FirstInitial,
+                        '. ',
+                        people_init::MiddleInitial,
+                        '. ',
+                        people_init::LastName,
+                        ' ',
+                        people_init::Suffix):
+                     CONCAT(
+                        people_init::FirstInitial,
+                        '. ',
+                        people_init::LastName,
+                        ' ',
+                        people_init::Suffix)) AS FullName;
+ */
