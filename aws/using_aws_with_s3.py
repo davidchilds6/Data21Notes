@@ -51,10 +51,11 @@ s3_object2 = s3_client.get_object(
     Key="python/fish-market.csv"
 )
 
-# contents2 = s3_object2["Body"].read()
-contents2_df = pd.read_csv(s3_object2["Body"])
+contents2 = s3_object2["Body"].read()
+#contents2_df = pd.read_csv(s3_object2["Body"])
 
-# pprint(contents2_df)
+pprint(contents2)
+
 
 
 # see if we can find a sol similar for txt files.
@@ -83,10 +84,10 @@ my_dict = {
 #     Key="Data21/Put/davec2.json"
 # )
 
-df = pd.DataFrame([[1.1, 2.2, 3.3, 4.4, 5.5], [10, 20, 30, 40, 50]])
-
-str_buffer = io.StringIO()
-df.to_csv(str_buffer)
+# df = pd.DataFrame([[1.1, 2.2, 3.3, 4.4, 5.5], [10, 20, 30, 40, 50]])
+#
+# str_buffer = io.StringIO()
+# df.to_csv(str_buffer)
 
 # s3_client.put_object(
 #     Body=str_buffer.getvalue(),
